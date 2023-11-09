@@ -9,7 +9,7 @@ class TestWCTool:
         assert num_of_bytes == "342190 test.txt"
 
     def test_can_return_number_of_lines_in_file(self):
-        command = "-c test.txt"
+        command = "-l test.txt"
         num_of_lines = WCTool(command).run_command()
 
         assert num_of_lines == "7145 test.txt"
