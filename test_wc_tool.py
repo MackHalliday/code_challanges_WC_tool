@@ -13,3 +13,9 @@ class TestWCTool:
         num_of_lines = WCTool(command).run_command()
 
         assert num_of_lines == "7145 test.txt"
+
+    def test_can_return_number_of_words_in_file(self):
+        command = "-w test.txt"
+        num_of_words = WCTool(command).run_command()
+
+        assert num_of_words == "58164 test.txt"

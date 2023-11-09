@@ -19,12 +19,23 @@ class WCTool:
             option_value = os.path.getsize(self.file_name)
 
         if self.arg_option == "-l":
-            option_value = self.count_lines(self.file_name)
+            option_value = self.count_lines()
+
+        if self.arg_option == "-w":
+            option_value = self.count_words()
 
         return f"{option_value} {self.file_name}"
 
-    def count_lines(self, file_name):
+    def count_lines(self):
         with open(self.file_name) as file:
             lines = file.readlines()
             total_lines = len(lines)
         return total_lines
+
+    def count_words(self):
+        with open(self.file_name) as file:
+            content = file.read()
+            words = content.split()
+            total_words = len(words)
+
+        return total_words
