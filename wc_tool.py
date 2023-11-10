@@ -20,23 +20,18 @@ class WCTool:
     def run_command(self):
         self.parse_command()
 
-        if self.arg_option == "-c":
-            value = self.byte_size()
-
-        if self.arg_option == "-l":
-            value = self.count_lines()
-
-        if self.arg_option == "-w":
-            value = self.count_words()
-
-        if self.arg_option == "-m":
-            value = self.count_characters()
+        value = {
+            "-c": self.byte_size,
+            "-l": self.count_lines,
+            "-w": self.count_words,
+            "-m": self.count_characters,
+        }
 
         if self.arg_option is None:
             value = self.no_option_values()
             return f"{value[0]}  {value[1]}  {value[2]} {self.file_name}"
 
-        return f"{value} {self.file_name}"
+        return f"{value.get(self.arg_option)()} {self.file_name}"
 
     def no_option_values(self):
         return self.count_lines(), self.count_words(), self.byte_size()
