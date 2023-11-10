@@ -40,13 +40,13 @@ class WCTool:
         return os.path.getsize(self.file_name)
 
     def count_lines(self):
-        with open(self.file_name, "r") as file:
+        with open(self.file_name, "r", encoding="utf-8") as file:
             lines = file.readlines()
             total_lines = len(lines)
         return total_lines
 
     def count_words(self):
-        with open(self.file_name, "r") as file:
+        with open(self.file_name, "r", encoding="utf-8") as file:
             content = file.read()
             words = content.split()
             total_words = len(words)
