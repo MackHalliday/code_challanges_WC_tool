@@ -19,3 +19,15 @@ class TestWCTool:
         num_of_words = WCTool(command).run_command()
 
         assert num_of_words == "58164 test.txt"
+
+    def test_can_return_number_of_characters_in_file(self):
+        command = "-m test.txt"
+        num_of_characters = WCTool(command).run_command()
+
+        assert num_of_characters == "339292 test.txt"
+
+    def test_can_return_bytes_line_word_as_default_option(self):
+        command = "test.txt"
+        default_return = WCTool(command).run_command()
+
+        assert default_return == "7145  58164  342190 test.txt"
