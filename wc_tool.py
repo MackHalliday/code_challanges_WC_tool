@@ -30,8 +30,8 @@ class WCTool:
         if self.arg_option is None:
             value_to_str = f"{value['-l']()}  {value['-w']()}  {value['-c']()}"
         else:
-            value_to_str = f"{value.get(self.arg_option, 'Invalid command')()}"
-            
+            value_to_str = f"{value.get(self.arg_option, lambda: 'Invalid command')()}"
+
         return f"{value_to_str} {self.file_name}"
 
     def byte_size(self):

@@ -31,3 +31,9 @@ class TestWCTool:
         default_return = WCTool(command).run_command()
 
         assert default_return == "7145  58164  342190 test.txt"
+    
+    def test_error_handling_for_invalid_input(self): 
+        command = "-z test.txt"
+        error_return = WCTool(command).run_command()
+
+        assert error_return == "Invalid command"
