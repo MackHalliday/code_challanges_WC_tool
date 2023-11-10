@@ -28,14 +28,11 @@ class WCTool:
         }
 
         if self.arg_option is None:
-            value = self.no_option_values()
-            return f"{value[0]}  {value[1]}  {value[2]} {self.file_name}"
-
-        value_to_string = f"{value.get(self.arg_option, 'Invalid command')()}"
-        return f"{value_to_string} {self.file_name}"
-
-    def no_option_values(self):
-        return self.count_lines(), self.count_words(), self.byte_size()
+            value_to_str = f"{value['-l']()}  {value['-w']()}  {value['-c']()}"
+        else:
+            value_to_str = f"{value.get(self.arg_option, 'Invalid command')()}"
+            
+        return f"{value_to_str} {self.file_name}"
 
     def byte_size(self):
         return os.path.getsize(self.file_name)
