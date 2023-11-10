@@ -31,7 +31,8 @@ class WCTool:
             value = self.no_option_values()
             return f"{value[0]}  {value[1]}  {value[2]} {self.file_name}"
 
-        return f"{value.get(self.arg_option)()} {self.file_name}"
+        value_to_string = f"{value.get(self.arg_option, 'Invalid command')()}"
+        return f"{value_to_string} {self.file_name}"
 
     def no_option_values(self):
         return self.count_lines(), self.count_words(), self.byte_size()
