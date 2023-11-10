@@ -13,9 +13,13 @@ class WCTool:
 
         if num_arg == 1:
             self.file_name = split_command[0]
-        if num_arg == 2:
+        elif num_arg == 2:
             self.arg_option = split_command[0]
             self.file_name = split_command[1]
+        else:
+            raise ValueError(
+                "Invalid command format. Expected: 'file_name.txt' or '-option file_name.text'"
+            )
 
     def run_command(self):
         self.parse_command()
@@ -29,8 +33,12 @@ class WCTool:
 
         if self.arg_option is None:
             value_to_str = f"{value['-l']()}  {value['-w']()}  {value['-c']()}"
+        elif self.arg_option in value.keys():
+            value_to_str = f"{value[self.arg_option]()}"
         else:
-            value_to_str = f"{value.get(self.arg_option, lambda: 'Invalid command')()}"
+            raise ValueError(
+                "Invalid command. Expected: '-c, -l, -w, -m, or None"
+            )
 
         return f"{value_to_str} {self.file_name}"
 

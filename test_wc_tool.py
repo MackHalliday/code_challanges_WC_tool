@@ -36,4 +36,4 @@ class TestWCTool:
         command = "-z test.txt"
         error_return = WCTool(command).run_command()
 
-        assert error_return == "Invalid command"
+        assert error_return == "ValueError: Invalid command. Expected: '-c, -l, -w, -m, or None"
