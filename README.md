@@ -1,6 +1,5 @@
 # code_challanges_WC_tool
-[First challenge from the Blog Code Challenges]
-(https://codingchallenges.fyi/challenges/challenge-wc)
+[First challenge from the Blog Code Challenges](https://codingchallenges.fyi/challenges/challenge-wc)
 
 ## References 
 - [Build Command-Line Interfaces With Python's argparse](https://realpython.com/command-line-interfaces-python-argparse/#getting-to-know-command-line-interfaces)
