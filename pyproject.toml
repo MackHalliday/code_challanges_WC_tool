@@ -1,0 +1,13 @@
+[build-system]
+requires = [""]
+build-backend = ""
+
+[project]
+name = "write_your_own_wc"
+version = "0.0.1"
+description = "Recreating Linux WC"
+readme = "README.md"
+authors = [{ name = "Mack Halliday", email = "Mackenzie.Halliday@Gmail.com" }]
+
+[project.scripts]
+ccwc = "ccwc.__main__:main"
