@@ -2,28 +2,11 @@ import os
 
 
 class WCTool:
-    def __init__(self, command):
-        self.command = command
-        self.arg_option = None
-        self.file_name = None
-
-    def parse_command(self):
-        split_command = self.command.split()
-        num_arg = len(split_command)
-
-        if num_arg == 1:
-            self.file_name = split_command[0]
-        elif num_arg == 2:
-            self.arg_option = split_command[0]
-            self.file_name = split_command[1]
-        else:
-            raise ValueError(
-                "Invalid command format. Expected: 'file_name.txt' or '-option file_name.text'"
-            )
+    def __init__(self, file_path, optional_args):
+        self.file_path = file_path
+        self.optional_args = optional_args
 
     def run_command(self):
-        self.parse_command()
-
         value = {
             "-c": self.byte_size,
             "-l": self.count_lines,
@@ -31,14 +14,17 @@ class WCTool:
             "-m": self.count_characters,
         }
 
-        if self.arg_option is None:
-            value_to_str = f"{value['-l']()}  {value['-w']()}  {value['-c']()}"
-        elif self.arg_option in value.keys():
-            value_to_str = f"{value[self.arg_option]()}"
-        else:
-            raise ValueError(
-                "Invalid command. Expected: '-c, -l, -w, -m, or None"
-            )
+        value_to_str = ""
+        
+        for arg in self.optional_args:
+            value_to_str += f"{value[arg]()} "
+
+        # if self.optional_args is None:
+        #     value_to_str = f"{value['-l']()}  {value['-w']()}  {value['-c']()}"
+        # elif self.optional_args in value.keys():
+        #     value_to_str = f"{value[self.optional_args]()}"
+        # else:
+        #     raise ValueError("Invalid command. Expected: '-c, -l, -w, -m, or None")
 
         return f"{value_to_str} {self.file_name}"
 
