@@ -1,7 +1,7 @@
 import os
 
 
-class WCTool:
+class CCWCModel:
     def __init__(self, file_path, optional_args):
         self.file_path = file_path
         self.optional_args = optional_args

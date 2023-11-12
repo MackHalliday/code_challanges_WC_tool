@@ -1,6 +1,6 @@
 import argparse
 from pathlib import Path
-from model import WCTool
+from model import CCWCModel
 
 parser = argparse.ArgumentParser(
     prog="code_challenge_wc", description="Rebuilding Linux WC"
@@ -22,7 +22,7 @@ def main():
     file_path = Path(args.path)
 
     if file_path:
-        output = WCTool(file_path, args).run_command()
+        output = CCWCModel(file_path, args).run_command()
         return print(output)
 
 
