@@ -23,7 +23,7 @@ class CCWCModel:
             value_to_str = self.count_characters()
 
         else:
-            return f"{self.byte_size()} {self.count_words()}  {self.count_characters()}"
+            return f"{self.count_lines()}  {self.count_words()}  {self.count_characters()} {self.file_path}"
 
         return f"{value_to_str} {self.file_path}"
 
