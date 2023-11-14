@@ -3,41 +3,45 @@ import pytest
 
 
 class TestWCTool:
+    ccwc_file = (
+        "/Users/mack/coding/coding_challenges/write_your_own_wc_tool/ccwc/ccwc.py"
+    )
+
     def test_can_return_number_of_bytes_in_file(self):
-        result_bytes = subprocess.check_output(
-            ["python3", "ccwc/ccwc.py", "-c", "tests/test.txt"], universal_newlines=True
+        print(self.ccwc_file)
+        result = subprocess.check_output(
+            ["python3", self.ccwc_file, "-c", "tests/test.txt"], universal_newlines=True
         )
-        assert result_bytes == "342190 tests/test.txt\n"
+        assert result == "342190 tests/test.txt\n"
 
-    @pytest.mark.skip()
     def test_can_return_number_of_lines_in_file(self):
-        pass
-        result = ""
+        result = subprocess.check_output(
+            ["python3", self.ccwc_file, "-l", "tests/test.txt"], universal_newlines=True
+        )
 
-        assert result == "7145 test.txt"
+        assert result == "7145 tests/test.txt\n"
 
-    @pytest.mark.skip()
     def test_can_return_number_of_words_in_file(self):
-        pass
-        result = ""
+        result = subprocess.check_output(
+            ["python3", self.ccwc_file, "-w", "tests/test.txt"], universal_newlines=True
+        )
 
-        assert result == "58164 test.txt"
+        assert result == "58164 tests/test.txt\n"
 
-    @pytest.mark.skip()
     def test_can_return_number_of_characters_in_file(self):
-        pass
-        result = ""
+        result = subprocess.check_output(
+            ["python3", self.ccwc_file, "-m", "tests/test.txt"], universal_newlines=True
+        )
 
-        assert result == "339292 test.txt"
+        assert result == "339292 tests/test.txt\n"
 
-    @pytest.mark.skip()
     def test_can_return_bytes_line_word_as_default_option(self):
-        pass
-        result = ""
+        result = subprocess.check_output(
+            ["python3", self.ccwc_file, "tests/test.txt"], universal_newlines=True
+        )
 
-        assert result == "7145  58164  342190 test.txt"
+        assert result == "7145  58164  339292 tests/test.txt\n"
 
-    @pytest.mark.skip()
     def test_error_handling_for_invalid_input(self):
         pass
         result = ""
