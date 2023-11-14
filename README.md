@@ -5,8 +5,11 @@
 - [Build Command-Line Interfaces With Python's argparse](https://realpython.com/command-line-interfaces-python-argparse/#getting-to-know-command-line-interfaces)
 
 ## TODO
-- [ ] Figure out testing for command line 
-- [ ] Fix TOML file 
-- [ ] Create python environment locally and redo the requirements.txt 
+- [ ] Do I need a TOML file / how to handle requirements?
+- [x] Create python environment locally and redo the requirements.txt - why is pytest not showing up?
 - [ ] Figure out better was to parse and return only True optional args 
 - [ ] Local debug
+- [ ] How would I make this an installable package instead of an alias in zshrc? 
+
+# .zshrc alias 
+`alias ccwc='python3 [ABSOLUTE PATH TO] write_your_own_wc_tool/ccwc/ccwc.py'`
